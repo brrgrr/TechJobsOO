@@ -66,3 +66,7 @@ table.job-listing td:last-child {
 label {
     margin-right: 15px;
 }
+
+.form-horizontal label {
+    margin-right:unset;
+}
