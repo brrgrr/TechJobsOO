@@ -2,19 +2,52 @@
 
 <div asp-validation-summary="All"></div>
 
-<form asp-controller="Job" asp-action="New" method="post">
+<form class="form-horizontal" asp-controller="Job" asp-action="New" method="post">
     <div class="form-group">
-        <label asp-for="Name"></label>
-        <input class="form-control" asp-for="Name" />
+        <label class="control-label col-sm-2" asp-for="Name"></label>
+        <div class="col-sm-10">
+            <input class="form-control" required asp-for="Name" />
+        </div>
     </div>
     <div class="form-group">
-        <label asp-for="EmployerID"></label>
-        <select asp-for="EmployerID" asp-items="Model.Employers"></select>
+        <label class="control-label col-sm-2" asp-for="EmployerID"></label>
+        <div class="col-sm-10">
+            <select asp-for="EmployerID" asp-items="Model.Employers">
+                <option value="" disabled selected>Select an Employer</option>
+            </select>
+        </div>
     </div>
-
-    @{ 
-        // TODO #5 - Create <select> dropdowns for other job fields (outside of this @{ } block)
+    @{
+// TODO #5 - DONE - Create <select> dropdowns for other job fields (outside of this @{ } block)
     }
 
-    <input type="submit" value="Add Job" />
+    <div class="form-group">
+        <label class="control-label col-sm-2" asp-for="LocationID"></label>
+        <div class="col-sm-10">
+            <select asp-for="LocationID" asp-items="Model.Locations">
+                <option value="" disabled selected>Select a Location</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" asp-for="CoreCompetencyID"></label>
+        <div class="col-sm-10">
+            <select asp-for="CoreCompetencyID" asp-items="Model.CoreCompetencies">
+                <option value="" disabled selected>Select a Skill</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" asp-for="PositionTypeID"></label>
+        <div class="col-sm-10">
+            <select asp-for="PositionTypeID" asp-items="Model.PositionTypes">
+                <option value="" disabled selected>Select a Type</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" value="Add Job" />
+        </div>
+    </div>
 </form>
